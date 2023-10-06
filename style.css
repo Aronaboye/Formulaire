@@ -5,9 +5,11 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;;
 }
-/* body{
-    margin: 50px 50px;
-} */
+body{
+    background-image: url("images/background.jpg");
+    background-position: center;
+    background-size: cover;
+}
 header{
     margin: 50px 150px;
     display: flex;
@@ -18,6 +20,7 @@ header{
 }
 h1{
     font-size: 48px;
+    color: white;
 }
 nav ul{
     display: flex;
@@ -31,10 +34,11 @@ nav ul li{
 }
 nav ul li a{
     text-decoration: none;
-    color: black;
+    color:white;
 }
 nav ul li :hover{
-    color: grey;
+    transition: 0.5s;
+    color: rgb(15, 174, 248);
 }
 form{
     position: relative;
@@ -52,9 +56,11 @@ form{
 h2{
     text-align: center;
     margin: 40px;
+    color: white;
 }
 label{
     display: block;
+    color: white;
 }
 input{
     width: 400px;
@@ -63,6 +69,9 @@ input{
     border: 1px solid grey;
     border-radius: 5px;
     font-size: 17px;
+    outline-color:grey ;
+    outline-style: solid;
+    outline-width: 2px;
 }
 .input{
     margin: 40px 0;
@@ -75,9 +84,11 @@ button{
     font-size: 17px ;
 }
 button:hover{
-    background-color: white;
+    background-color: grey;
     cursor: pointer;
-    border-color: rgb(22, 99, 150);
+    color: white;
+    font-weight: bold;
+    transition: 0.5s;
 }
 .submit{
     display: flex;
@@ -94,6 +105,108 @@ img{
     left: 20px;
     transform: translateY(-50%);
     transform: translateX(-50%);
-    color: black;
+    color: grey;
 }
+.box{
+    display: none;
+}
+/* media query */
 
+@media screen and (max-width: 1024px) {
+   
+    header{
+        margin: 40px;
+        position: relative;
+    }
+    nav{
+        display: none;
+    }
+    .box {
+        display: block;
+        margin: 10px;
+        width: 50px;
+        height: 40px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        position: relative;
+        background-color: white;
+      }
+      .container-lignes {
+        width: 50px;
+        height: 55px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+      .ligne {
+        position: absolute;
+        border-radius: 10px;
+        width: 50px;
+        height: 5px;
+        background: #000;
+      }
+      .box .ligne:nth-child(1){
+        top: 15px;
+      }
+      .box .ligne:nth-child(2){
+        top: 25px;
+      }
+      .box .ligne:nth-child(3){
+        top: 35px;
+      }
+      
+      
+      /* Anim 1 */
+      .b1 .ligne:nth-child(1), .ligne:nth-child(3){
+        transform: rotate(0deg);
+        transition:   
+        transform 0.4s ease-in-out,
+        top 0.4s 0.4s ease-in-out;
+      }
+      .b1 .ligne:nth-child(2) {
+        transition: opacity 0.4s 0.4s ease-in-out;
+      }
+      
+      
+      .b1.active .ligne:nth-child(1){
+        top: 25px;
+        transform: rotate(45deg);
+        transition:   
+        top 0.4s  ease-in-out,
+        transform 0.4s 0.4s ease-in-out;
+      }
+      .b1.active .ligne:nth-child(2){
+        transition: opacity 0.4s ease-in-out;
+        opacity: 0;
+      }
+      .b1.active .ligne:nth-child(3){
+        top: 25px;
+        transform: rotate(-45deg);
+        transition:   
+        top 0.4s  ease-in-out,
+        transform 0.4s 0.4s ease-in-out;
+      }
+      /* .navToogle{
+        width: 100%;
+        height: 100%;
+        background-color: white; 
+        color: black;
+        opacity: 1;
+        display: flex;
+        gap: 40px;
+        font-weight: bold;
+        position: absolute;
+      } */
+      nav ul{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        position: absolute;
+        top: 100px;
+        right: 100px;
+    }
+}
